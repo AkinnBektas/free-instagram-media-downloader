@@ -322,7 +322,9 @@ private fun ProfileContent(state: UiState, vm: MainViewModel) {
                                 onHighlight = { h -> vm.openHighlight(h.id, h.title) }
                             )
                         }
-                        if (p.isPrivate) PrivateNotice()
+                        if (p.isPrivate && p.posts.isEmpty() && p.reels.isEmpty() && p.highlights.isEmpty()) {
+                            PrivateNotice()
+                        }
                     }
                 }
             )
